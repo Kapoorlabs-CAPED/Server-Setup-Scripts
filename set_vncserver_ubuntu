@@ -1,0 +1,7 @@
+sudo apt update
+sudo apt install ubuntu-desktop
+sudo apt install tightvncserver
+sudo apt install gnome-panel 
+sudo apt install gnome-settings-daemon metacity 
+sudo apt install nautilus gnome-terminal
+vncserver :1
