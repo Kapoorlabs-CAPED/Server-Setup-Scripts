@@ -16,24 +16,20 @@ For our AWS instances we start from the post number 2 and setup the various inst
 sudo yum update
 sudo amazon-linux-extras install mate-desktop1.x
 sudo bash -c 'echo PREFERRED=/usr/bin/mate-session > /etc/sysconfig/desktop'
-sudo yum install tigervnc-server
-vncpasswd
+sudo yum install -y tigervnc-server
 sudo mkdir /etc/tigervnc
 sudo bash -c 'echo localhost > /etc/tigervnc/vncserver-config-mandatory'
 sudo cp /lib/systemd/system/vncserver@.service /etc/systemd/system/vncserver@.service
 sudo sed -i 's/<USER>/ec2-user/' /etc/systemd/system/vncserver@.service
 sudo systemctl daemon-reload
-sudo systemctl enable vncserver@: <display number>
-sudo systemctl start vncserver@: <display number>
-sudo yum install mate-desktop
-sudo yum install mate-desktop-environment
+sudo systemctl enable vncserver@:<display number>
+sudo systemctl start vncserver@:<display number>
+sudo yum install -y mate-desktop
 ```
 
 vi  ~/.vnc/xstartup
 
 ### For running MATE desktop
-
-sudo apt-get install mate-desktop-environment
 
 
 ```
@@ -41,12 +37,15 @@ sudo apt-get install mate-desktop-environment
 # Start up the standard system desktop
 unset SESSION_MANAGER
 unset DBUS_SESSION_BUS_ADDRESS
+dbus-launch /usr/bin/mate-session &
 /usr/bin/mate-session
 [ -x /etc/vnc/xstartup ] && exec /etc/vnc/xstartup
 [ -r $HOME/.Xresources ] && xrdb $HOME/.Xresources
 x-window-manager &
 ```
+To make it executable:
 
+chmod +x ~/.vnc/xstartup
 #### Installing Anaconda and Napari on debian servers
 
 wget https://repo.anaconda.com/archive/Anaconda3-2022.10-Linux-x86_64.sh
@@ -66,6 +65,7 @@ sudo yum install -y mesa-libGL-devel
 sudo yum install -y libdbusmenu-gtk3
 sudo yum install -y libdbusmenu-glib.so.4
 sudo yum install -y libdbus-1.so.3
+sudo yum install -y libxkbcommon-x11
 sudo yum install -y libxkbcommon.so.0
 sudo yum install -y qt5-qtx11extras-devel
 ```
@@ -80,7 +80,7 @@ vncserver -geometry 1600x900 :2
 
 To connect to this server from laptop type in
 ---
-ssh -N -L 5901:localhost:5901 -i <name>.pem username@ip
+ssh -N -L 5902:localhost:5902 -i <name>.pem username@ip
 
 E.g. username: ec2-user
 
