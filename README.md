@@ -6,7 +6,7 @@
 
 ## To set up a Vncserver on Debian Linux personal server with running Napari
 
-´´´
+```
 sudo apt-add-repository ppa:ubuntu-mate-dev/xenial-mate
 sudo apt-get update & sudo apt-get upgrade
 sudo apt-get install tightvnc
@@ -16,7 +16,7 @@ sudo apt install snapd
 sudo snap install core
 
 
-´´´
+```
 ## To run different desktop environments update the xstartup file
 
 
@@ -27,7 +27,7 @@ vi  ~/.vnc/xstartup
 sudo apt-get install mate-desktop-environment
 
 
-´´´
+```
 #!/bin/sh
 # Start up the standard system desktop
 unset SESSION_MANAGER
@@ -36,12 +36,12 @@ unset DBUS_SESSION_BUS_ADDRESS
 [ -x /etc/vnc/xstartup ] && exec /etc/vnc/xstartup
 [ -r $HOME/.Xresources ] && xrdb $HOME/.Xresources
 x-window-manager &
-´´´
+```
 
 ### For running lxde desktop
 sudo apt-get install lxde
 
-´´´
+```
 #!/bin/sh
 # Start up the standard system desktop
 unset SESSION_MANAGER
@@ -50,13 +50,13 @@ unset DBUS_SESSION_BUS_ADDRESS
 [ -x /etc/vnc/xstartup ] && exec /etc/vnc/xstartup
 [ -r $HOME/.Xresources ] && xrdb $HOME/.Xresources
 x-window-manager &
-´´´
+```
 
 ### For running KDE Plasma desktop
 
 sudo apt-get install kde-plasma-desktop
 
-´´´
+```
 #!/bin/sh
 # Start up the standard system desktop
 unset SESSION_MANAGER
@@ -65,14 +65,14 @@ unset DBUS_SESSION_BUS_ADDRESS
 [ -x /etc/vnc/xstartup ] && exec /etc/vnc/xstartup
 [ -r $HOME/.Xresources ] && xrdb $HOME/.Xresources
 x-window-manager &
-´´´
+```
 
 
 ### For running Cinnamon desktop
 
 sudo apt-get install cinnamon-desktop-environment
 
-´´´
+```
 #!/bin/sh
 # Start up the standard system desktop
 unset SESSION_MANAGER
@@ -81,14 +81,14 @@ unset DBUS_SESSION_BUS_ADDRESS
 [ -x /etc/vnc/xstartup ] && exec /etc/vnc/xstartup
 [ -r $HOME/.Xresources ] && xrdb $HOME/.Xresources
 x-window-manager &
-´´´
+```
 
 
 ### For running Xfce desktop
 
 sudo apt-get install xfce4 xfce4-goodies
 
-´´´
+```
 #!/bin/sh
 # Start up the standard system desktop
 unset SESSION_MANAGER
@@ -97,7 +97,7 @@ unset DBUS_SESSION_BUS_ADDRESS
 [ -x /etc/vnc/xstartup ] && exec /etc/vnc/xstartup
 [ -r $HOME/.Xresources ] && xrdb $HOME/.Xresources
 x-window-manager &
-´´´
+```
 
 
 To make it executable:
@@ -140,4 +140,3 @@ sudo apt-get install -y libdbus-1-3 libxkbcommon-x11-0 libxcb-icccm4 \
     libxcb-image0 libxcb-keysyms1 libxcb-randr0 libxcb-render-util0 \
     libxcb-xinerama0 libxcb-xinput0 libxcb-xfixes0
 
-    
