@@ -8,9 +8,9 @@ For our AWS instances we start from the post number 2 and setup the various inst
 
 | Instance Name | Display number | Technical specs | Intended usage |
 |:---           |:---:           | :---:           |:---:           |
-| AL_KapoorLabs_predict | 2 | Tesla T4 15360MiB, 15.4 GB RAM, 4 vCPU,CUDA Version: 11.6 |  Prediction on small scale datasets |
-| AL_KapoorLabs_train_min | 3 | Tesla T4 15360MiB, 31 GB RAM, 4 vCPU,CUDA Version: 11.6 |  Training on large scale datasets, Prediction on mid scale datasets |
-
+| AL_KapoorLabs_predict | 2 | Tesla T4 15360MiB, 15.4 GB RAM, 4 vCPU,CUDA Version: 11.6, Deep Learning AMI GPU TensorFlow 2.10.0 (Amazon Linux 2) 20221024 |  Prediction on small scale datasets |
+| AL_KapoorLabs_train_mid | 3 | Tesla T4 15360MiB, 31 GB RAM, 4 vCPU,CUDA Version: 11.6, Deep Learning AMI GPU TensorFlow 2.10.0 (Amazon Linux 2) 20221024 |  Training on mid scale datasets, Prediction on mid scale datasets |
+| AL_KapoorLabs_train_large | 4 | Tesla T4 15360MiB, 60 GB RAM, 4 vCPU,CUDA Version: 11.6, Deep Learning AMI GPU TensorFlow 2.10.0 (Amazon Linux 2) 20221024 |  Training on large scale datasets, Prediction on large scale datasets |
 
 ```
 sudo yum update
