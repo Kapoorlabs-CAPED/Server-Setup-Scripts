@@ -23,9 +23,68 @@ sudo bash -c 'echo localhost > /etc/tigervnc/vncserver-config-mandatory'
 sudo cp /lib/systemd/system/vncserver@.service /etc/systemd/system/vncserver@.service
 sudo sed -i 's/<USER>/ec2-user/' /etc/systemd/system/vncserver@.service
 sudo systemctl daemon-reload
-sudo systemctl enable vncserver@:2
-sudo systemctl start vncserver@:2
+sudo systemctl enable vncserver@: <display number>
+sudo systemctl start vncserver@: <display number>
+sudo yum install mate-desktop
+sudo yum install mate-desktop-environment
 ```
+
+vi  ~/.vnc/xstartup
+
+### For running MATE desktop
+
+sudo apt-get install mate-desktop-environment
+
+
+```
+#!/bin/sh
+# Start up the standard system desktop
+unset SESSION_MANAGER
+unset DBUS_SESSION_BUS_ADDRESS
+/usr/bin/mate-session
+[ -x /etc/vnc/xstartup ] && exec /etc/vnc/xstartup
+[ -r $HOME/.Xresources ] && xrdb $HOME/.Xresources
+x-window-manager &
+```
+
+## Installing Anaconda and Napari on debian servers
+
+wget https://repo.anaconda.com/archive/Anaconda3-2022.10-Linux-x86_64.sh
+
+chmod 777 Anaconda3-2022.10-Linux-x86_64.sh
+
+./Anaconda3-2022.10-Linux-x86_64.sh
+
+conda create -n naparienv python==3.9
+
+pip install oneat
+
+pip install napari[all]
+
+```
+sudo yum install -y mesa-libGL-devel
+sudo yum install -y libdbusmenu-gtk3
+sudo yum install -y libdbusmenu-glib.so.4
+sudo yum install -y libdbus-1.so.3
+sudo yum install -y libxkbcommon.so.0
+sudo yum install -y qt5-qtx11extras-devel
+```
+To make it executable:
+
+chmod +x ~/.vnc/xstartup
+
+Starting the vncserver
+---
+Here we start the vnc server on display number 1
+vncserver -geometry 1600x900 :1
+
+To connect to this server from laptop type in
+---
+ssh -N -L 5901:localhost:5901 -i <name>.pem username@ip
+
+E.g. username: ec2-user
+
+ip : 51.xx.ec2-13-38-41-103.eu-west-3.compute.amazonaws.com
 
 
 ## To set up a Vncserver on Debian Linux personal server with running Napari
@@ -38,8 +97,6 @@ sudo apt-get install tightvncserver
 vncserver
 sudo apt install snapd
 sudo snap install core
-
-
 ```
 ## To run different desktop environments update the xstartup file
 
@@ -143,10 +200,10 @@ ssh -N -L 5901:localhost:5901 username@ip
 
 E.g. username: debian
 
-ip : 51.210.158.171
+ip : 50.xx
 
 
-## Installing Anaconda and Napari
+## Installing Anaconda and Napari on debian servers
 
 wget https://repo.anaconda.com/archive/Anaconda3-2022.10-Linux-x86_64.sh
 
