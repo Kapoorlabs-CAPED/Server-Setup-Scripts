@@ -2,6 +2,28 @@
 
 ## To set up a Vncserver on AWS Amazon Linux with running Napari
 
+Setting things on amazon linux instance to have a GUI based controller for submitting, monitoring and visualizing jobs and their outputs.
+
+For our AWS instances we start from the post number 2 and setup the various instances numbered according to their tasks:
+
+| Instance Name | Display number | Technical specs |
+|:---           |:---:           | :---:           |
+| AL_KapoorLabs_predict | 2 | Tesla T4 15360MiB, 15.4 GB RAM, 4 vCPU,CUDA Version: 11.6 |  
+
+```
+sudo yum update
+sudo amazon-linux-extras install mate-desktop1.x
+sudo bash -c 'echo PREFERRED=/usr/bin/mate-session > /etc/sysconfig/desktop'
+sudo yum install tigervnc-server
+vncpasswd
+sudo mkdir /etc/tigervnc
+sudo bash -c 'echo localhost > /etc/tigervnc/vncserver-config-mandatory'
+sudo cp /lib/systemd/system/vncserver@.service /etc/systemd/system/vncserver@.service
+sudo sed -i 's/<USER>/ec2-user/' /etc/systemd/system/vncserver@.service
+sudo systemctl daemon-reload
+sudo systemctl enable vncserver@:2
+sudo systemctl start vncserver@:2
+```
 
 
 ## To set up a Vncserver on Debian Linux personal server with running Napari
@@ -110,7 +132,7 @@ chmod +x ~/.vnc/xstartup
 
 Starting the vncserver
 ---
-Here we start he vnc server on display number 1
+Here we start the vnc server on display number 1
 vncserver -geometry 1600x900 :1
 
 To connect to this server from laptop type in
