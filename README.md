@@ -25,6 +25,9 @@ sudo systemctl daemon-reload
 sudo systemctl enable vncserver@:<display number>
 sudo systemctl start vncserver@:<display number>
 sudo yum install -y mate-desktop
+sudo amazon-linux-extras install epel -y
+sudo yum install -y chromium
+
 ```
 
 vi  ~/.vnc/xstartup
