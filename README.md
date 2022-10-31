@@ -6,9 +6,12 @@ Setting things on amazon linux instance to have a GUI based controller for submi
 
 For our AWS instances we start from the post number 2 and setup the various instances numbered according to their tasks:
 
-| Instance Name | Display number | Technical specs |
-|:---           |:---:           | :---:           |
-| AL_KapoorLabs_predict | 2 | Tesla T4 15360MiB, 15.4 GB RAM, 4 vCPU,CUDA Version: 11.6 |  
+| Instance Name | Display number | Technical specs | Intended usage |
+|:---           |:---:           | :---:           |:---:           |
+| AL_KapoorLabs_predict | 2 | Tesla T4 15360MiB, 15.4 GB RAM, 4 vCPU,CUDA Version: 11.6 |  Prediction on small scale datasets |
+
+| AL_KapoorLabs_train_min | 3 | Tesla T4 15360MiB, 31 GB RAM, 4 vCPU,CUDA Version: 11.6 |  Training on large scale datasets, Prediction on mid scale datasets |
+
 
 ```
 sudo yum update
