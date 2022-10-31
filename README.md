@@ -47,7 +47,7 @@ unset DBUS_SESSION_BUS_ADDRESS
 x-window-manager &
 ```
 
-## Installing Anaconda and Napari on debian servers
+#### Installing Anaconda and Napari on debian servers
 
 wget https://repo.anaconda.com/archive/Anaconda3-2022.10-Linux-x86_64.sh
 
@@ -75,8 +75,8 @@ chmod +x ~/.vnc/xstartup
 
 Starting the vncserver
 ---
-Here we start the vnc server on display number 1
-vncserver -geometry 1600x900 :1
+Here we start the vnc server on display number 2
+vncserver -geometry 1600x900 :2
 
 To connect to this server from laptop type in
 ---
@@ -203,7 +203,7 @@ E.g. username: debian
 ip : 50.xx
 
 
-## Installing Anaconda and Napari on debian servers
+#### Installing Anaconda and Napari on debian servers
 
 wget https://repo.anaconda.com/archive/Anaconda3-2022.10-Linux-x86_64.sh
 
