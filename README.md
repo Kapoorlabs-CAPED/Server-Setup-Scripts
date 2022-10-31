@@ -217,7 +217,8 @@ pip install oneat
 
 pip install napari[all]
 
-sudo apt-get install -y libdbus-1-3 libxkbcommon-x11-0 libxcb-icccm4 \
-    libxcb-image0 libxcb-keysyms1 libxcb-randr0 libxcb-render-util0 \
+```
+sudo apt-get install -y libdbus-1-3 libxkbcommon-x11-0 libxcb-icccm4 
+    libxcb-image0 libxcb-keysyms1 libxcb-randr0 libxcb-render-util0 
     libxcb-xinerama0 libxcb-xinput0 libxcb-xfixes0
-
+```
