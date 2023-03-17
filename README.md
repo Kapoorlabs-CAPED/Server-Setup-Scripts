@@ -13,6 +13,7 @@ For our AWS instances we start from the post number 2 and setup the various inst
 | AL_KapoorLabs_train_large | 4 | Tesla T4 15360MiB, 60 GB RAM, 16 vCPU,CUDA Version: 11.6, Deep Learning AMI GPU TensorFlow 2.10.0 (Amazon Linux 2) 20221024 |  Training on large scale datasets, Prediction on large scale datasets |
 
 ```
+#!/bin/bash
 sudo yum update -y
 sudo amazon-linux-extras install -y mate-desktop1.x
 sudo bash -c 'echo PREFERRED=/usr/bin/mate-session > /etc/sysconfig/desktop'
@@ -22,8 +23,8 @@ sudo bash -c 'echo localhost > /etc/tigervnc/vncserver-config-mandatory'
 sudo cp /lib/systemd/system/vncserver@.service /etc/systemd/system/vncserver@.service
 sudo sed -i 's/<USER>/ec2-user/' /etc/systemd/system/vncserver@.service
 sudo systemctl daemon-reload
-sudo systemctl enable vncserver@:<display number>
-sudo systemctl start vncserver@:<display number>
+sudo systemctl enable vncserver@:5
+sudo systemctl start vncserver@:5
 sudo yum install -y mate-desktop
 sudo amazon-linux-extras install epel -y
 sudo yum install -y chromium
