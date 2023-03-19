@@ -61,7 +61,7 @@ chmod 777 Anaconda3-2022.10-Linux-x86_64.sh
 
 conda create -n naparienv python==3.10
 
-pip install cqped-ai
+pip install caped-ai
 
 pip install napari[all]
 
